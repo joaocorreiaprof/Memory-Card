@@ -1,0 +1,30 @@
+.music-button {
+  background-color: #4e4d3a;
+  color: #f7f3e7;
+  border: 2px solid #8b8c7a;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-family: "Harry Potter", sans-serif;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(0, 0, 0, 0.1)
+  );
+}
+
+.music-button:hover {
+  background-color: #6f6e58;
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
+  cursor: url("../assets/images/magic-wand.png"), auto;
+}
+
+.music-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}

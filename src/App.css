@@ -1,0 +1,40 @@
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  cursor: url("./assets/images/magic-wand.png"), auto;
+}
+
+body {
+  background-image: url("./assets/images/harry-potter.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.trail {
+  width: 10px; /* Ajuste conforme necessário */
+  height: 10px; /* Ajuste conforme necessário */
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 215, 0, 0.7) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-radius: 50%; /* Forma redonda */
+  pointer-events: none; /* Ignora eventos de mouse */
+  animation: sparkle 1s forwards; /* Animação de brilho */
+}
+
+@keyframes sparkle {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3); /* Aumenta o tamanho do efeito */
+    opacity: 0; /* Desaparece */
+  }
+}
