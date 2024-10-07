@@ -1,7 +1,7 @@
 .character-container {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
-  grid-gap: 5px;
+  grid-gap: 20px;
   margin-left: 10%;
   margin-right: 10%;
 }
@@ -9,7 +9,7 @@
 .characters-images {
   height: 200px;
   width: 120px;
-  margin-bottom: 40px;
+
   border: 2px solid #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);

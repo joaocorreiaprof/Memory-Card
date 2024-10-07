@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/characters.css";
+import hogwartsImage from "../assets/images/hogwarts.jpg";
 
 function GetCharacters() {
   const [images, setImages] = useState({});
+  const [clickedCharacter, setClickedCharacter] = useState(null);
 
   useEffect(() => {
     const getCharactersImages = async () => {
@@ -41,16 +43,16 @@ function GetCharacters() {
   }, []);
 
   const handleClick = (name) => {
-    console.log(`Personagem clicado: ${name}`);
+    setClickedCharacter((prev) => (prev === name ? null : name));
   };
 
   return (
     <div className="character-container">
       {Object.entries(images).flatMap(([name, imgSrc]) =>
-        [...Array(3)].map((_, index) => (
+        [...Array(2)].map((_, index) => (
           <img
             key={`${name}-${index}`}
-            src={imgSrc}
+            src={clickedCharacter === name ? imgSrc : hogwartsImage}
             alt={name}
             className="characters-images"
             onClick={() => handleClick(name)}
