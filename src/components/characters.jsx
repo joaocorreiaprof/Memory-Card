@@ -5,7 +5,9 @@ import hogwartsImage from "../assets/images/hogwarts.jpg";
 
 function GetCharacters() {
   const [images, setImages] = useState({});
-  const [clickedCharacter, setClickedCharacter] = useState(null);
+  const [clickedCards, setClickedCards] = useState([]);
+  const [alreadyMatch, setAlreadyMatch] = useState([]);
+  const [checkMatch, setCheckMatch] = useState(false);
 
   useEffect(() => {
     const getCharactersImages = async () => {
@@ -42,22 +44,30 @@ function GetCharacters() {
     getCharactersImages();
   }, []);
 
-  const handleClick = (name) => {
-    setClickedCharacter((prev) => (prev === name ? null : name));
+  const handleClick = (name, index) => {
+    const cardId = `${name}-${index}`;
+    setClickedCards((prev) =>
+      prev.includes(cardId)
+        ? prev.filter((id) => id !== cardId)
+        : [...prev, cardId]
+    );
   };
 
   return (
     <div className="character-container">
       {Object.entries(images).flatMap(([name, imgSrc]) =>
-        [...Array(2)].map((_, index) => (
-          <img
-            key={`${name}-${index}`}
-            src={clickedCharacter === name ? imgSrc : hogwartsImage}
-            alt={name}
-            className="characters-images"
-            onClick={() => handleClick(name)}
-          />
-        ))
+        [...Array(2)].map((_, index) => {
+          const cardId = `${name}-${index}`;
+          return (
+            <img
+              key={cardId}
+              src={clickedCards.includes(cardId) ? imgSrc : hogwartsImage}
+              alt={name}
+              className="characters-images"
+              onClick={() => handleClick(name, index)}
+            />
+          );
+        })
       )}
     </div>
   );
