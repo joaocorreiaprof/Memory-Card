@@ -79,7 +79,7 @@ function GetCharacters() {
           setFoundPairs((prevFoundPairs) => [...prevFoundPairs, name]);
         }
 
-        setTimeout(() => setClickedCards([]), 500);
+        setTimeout(() => setClickedCards([]), 1000);
       }
 
       return newClickedCards;
