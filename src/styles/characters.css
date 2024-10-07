@@ -1,3 +1,4 @@
+/* Para telas grandes, como computadores */
 .character-container {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
@@ -9,7 +10,6 @@
 .characters-images {
   height: 200px;
   width: 120px;
-
   border: 2px solid #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
@@ -21,4 +21,49 @@
 .characters-images:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 12px rgba(255, 255, 255, 0.3);
+}
+
+/* Para telas médias, como tablets */
+@media (max-width: 1024px) {
+  .character-container {
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 15px;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .characters-images {
+    height: 180px;
+    width: 100px;
+  }
+}
+
+/* Para telas pequenas, como telemóveis */
+@media (max-width: 768px) {
+  .character-container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+
+  .characters-images {
+    height: 150px;
+    width: 80px;
+  }
+}
+
+/* Para telas muito pequenas, como smartphones */
+@media (max-width: 480px) {
+  .character-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 8px;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+  .characters-images {
+    height: 130px;
+    width: 70px;
+  }
 }
