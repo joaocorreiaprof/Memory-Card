@@ -7,7 +7,7 @@ const MagicTrail = () => {
     const newTrail = {
       left: `${e.pageX}px`,
       top: `${e.pageY}px`,
-      id: Date.now(),
+      id: `${Date.now()}-${Math.random()}`,
     };
 
     setTrail((prevTrail) => [...prevTrail, newTrail]);

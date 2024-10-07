@@ -4,6 +4,7 @@ import "./App.css";
 import Music from "./components/backgroundMusic";
 import backgroundMusic from "./assets/audio/ways-of-wizard.mp3";
 import MagicTrail from "./components/magicTrail";
+import Menu from "./components/main-menu";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       </audio>
       <Music />
       <MagicTrail />
+      <Menu />
     </div>
   );
 };

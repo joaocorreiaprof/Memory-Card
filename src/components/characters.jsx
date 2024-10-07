@@ -40,11 +40,23 @@ function GetCharacters() {
     getCharactersImages();
   }, []);
 
+  const handleClick = (name) => {
+    console.log(`Personagem clicado: ${name}`);
+  };
+
   return (
     <div className="character-container">
-      {Object.entries(images).map(([name, imgSrc]) => (
-        <img key={name} src={imgSrc} alt={name} className="characters-images" />
-      ))}
+      {Object.entries(images).flatMap(([name, imgSrc]) =>
+        [...Array(3)].map((_, index) => (
+          <img
+            key={`${name}-${index}`}
+            src={imgSrc}
+            alt={name}
+            className="characters-images"
+            onClick={() => handleClick(name)}
+          />
+        ))
+      )}
     </div>
   );
 }

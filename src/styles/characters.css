@@ -1,8 +1,24 @@
 .character-container {
-  background-color: yellow;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-gap: 5px;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .characters-images {
   height: 200px;
   width: 120px;
+  margin-bottom: 40px;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.9);
+  padding: 10px;
+  transition: transform 0.2s;
+}
+
+.characters-images:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.3);
 }
