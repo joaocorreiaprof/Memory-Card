@@ -1,5 +1,3 @@
-import { GetCharacters } from "./components/characters";
-import Scores from "./components/trackScores";
 import "./App.css";
 import Music from "./components/backgroundMusic";
 import backgroundMusic from "./assets/audio/ways-of-wizard.mp3";

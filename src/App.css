@@ -2,6 +2,9 @@ html,
 body {
   height: 100%;
   cursor: url("./assets/images/magic-wand.png"), auto;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 body {
@@ -13,11 +16,10 @@ body {
   min-height: 100vh;
 }
 
-/* Permitir rolagem em ecrãs pequenos */
 @media (max-width: 768px) {
   html,
   body {
-    overflow: auto; /* Permitir rolagem para ecrãs menores */
+    overflow: auto;
   }
 }
 

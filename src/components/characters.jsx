@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/characters.css";
 import hogwartsImage from "../assets/images/hogwarts.jpg";
+import Clock from "./clock";
 
-// Função para embaralhar o array (algoritmo Fisher-Yates)
 const shuffleArray = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -14,7 +14,7 @@ const shuffleArray = (array) => {
 
 function GetCharacters() {
   const [images, setImages] = useState({});
-  const [shuffledCards, setShuffledCards] = useState([]); // Armazena as cartas embaralhadas
+  const [shuffledCards, setShuffledCards] = useState([]);
   const [clickedCards, setClickedCards] = useState([]);
   const [foundPairs, setFoundPairs] = useState([]);
 
@@ -46,12 +46,10 @@ function GetCharacters() {
 
         setImages(characterImages);
 
-        // Criar um array com pares de personagens
         const pairsArray = characterNames.flatMap((name) =>
           [...Array(2)].map((_, index) => ({ name, id: `${name}-${index}` }))
         );
 
-        // Embaralhar os pares
         const shuffled = shuffleArray(pairsArray);
         setShuffledCards(shuffled);
       } catch (err) {
@@ -79,7 +77,7 @@ function GetCharacters() {
           setFoundPairs((prevFoundPairs) => [...prevFoundPairs, name]);
         }
 
-        setTimeout(() => setClickedCards([]), 1000);
+        setTimeout(() => setClickedCards([]), 700);
       }
 
       return newClickedCards;
@@ -87,26 +85,31 @@ function GetCharacters() {
   };
 
   return (
-    <div className="character-container">
-      {shuffledCards.map(({ name, id }) => {
-        const isFlipped =
-          clickedCards.includes(id) || foundPairs.includes(name);
+    <div>
+      <div className="show-time">
+        <Clock />
+      </div>
+      <div className="character-container">
+        {shuffledCards.map(({ name, id }) => {
+          const isFlipped =
+            clickedCards.includes(id) || foundPairs.includes(name);
 
-        return (
-          <img
-            key={id}
-            src={isFlipped ? images[name] : hogwartsImage}
-            alt={name}
-            className={`characters-images ${
-              foundPairs.includes(name) ? "found" : ""
-            }`}
-            onClick={() => handleClick(name, id.split("-")[1])}
-            style={{
-              pointerEvents: foundPairs.includes(name) ? "none" : "auto",
-            }}
-          />
-        );
-      })}
+          return (
+            <img
+              key={id}
+              src={isFlipped ? images[name] : hogwartsImage}
+              alt={name}
+              className={`characters-images ${
+                foundPairs.includes(name) ? "found" : ""
+              }`}
+              onClick={() => handleClick(name, id.split("-")[1])}
+              style={{
+                pointerEvents: foundPairs.includes(name) ? "none" : "auto",
+              }}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
