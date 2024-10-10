@@ -4,7 +4,6 @@ body {
   cursor: url("./assets/images/magic-wand.png"), auto;
   margin: 0;
   padding: 0;
-  overflow: hidden;
 }
 
 body {
@@ -14,6 +13,52 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 100vh;
+}
+
+.start-button {
+  padding: 15px 30px;
+  background-color: #4b2e83;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid #d4af37;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.7);
+  font-family: "Cinzel", serif;
+  letter-spacing: 2px;
+  overflow: hidden;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.start-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transition: all 0.6s ease;
+}
+
+.start-button:hover::before {
+  left: 100%;
+}
+
+.start-button:hover {
+  background-color: #663399;
+  color: #d4af37;
+  border-color: #663399;
+  transform: scale(1.1);
 }
 
 @media (max-width: 768px) {

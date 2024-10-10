@@ -12,7 +12,11 @@ const Menu = () => {
 
   return (
     <div>
-      <button onClick={handleStartGame} disabled={isButtonDisabled}>
+      <button
+        className="start-button"
+        onClick={handleStartGame}
+        disabled={isButtonDisabled}
+      >
         Start Game
       </button>
       {showCharacters && <GetCharacters />}
